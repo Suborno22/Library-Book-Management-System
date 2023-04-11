@@ -1,0 +1,29 @@
+/* Center align the h1 element */
+h1 {
+    text-align: center;
+  }
+  
+  /* Add a border and padding to the div element */
+  div {
+    border: 1px solid black;
+    padding: 10px;
+  }
+  
+  /* Align the label and input elements */
+  label, input {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  /* Add some margin to the submit button */
+  input[type="submit"] {
+    margin-top: 10px;
+  }
+  
+  /* Style the form container */
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  

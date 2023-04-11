@@ -1,0 +1,50 @@
+/* style.css */
+
+/* Center align the header */
+#head {
+    text-align:center;
+}
+
+/* Center align the registration form */
+form {
+    margin:auto;
+    max-width: 500px;
+}
+
+/* Style the labels */
+label {
+    display: block;
+    font-weight: bold;
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 10px;
+}
+
+/* Style the input fields */
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing:border-box;
+}
+
+/* Style the submit button */
+#submit {
+    background-color: #273027;
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Center align the heading and sub-heading */
+.cen {
+    text-align: center;
+}
