@@ -1,0 +1,25 @@
+CREATE DATABASE IF NOT EXISTS college;
+
+USE college;
+
+CREATE TABLE IF NOT EXISTS books (
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  book_name VARCHAR(100),
+  stock INT(20)
+);
+
+CREATE TABLE IF NOT EXISTS history (
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  user_name VARCHAR(100),
+  book_name VARCHAR(100),
+  author_name VARCHAR(100)
+);
+
+CREATE TABLE IF NOT EXISTS students_database (
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(250),
+  email VARCHAR(250),
+  phone VARCHAR(100),
+  semester VARCHAR(100),
+  department VARCHAR(100)
+);
