@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Library</title>
+    <link rel="stylesheet" href="../Membership/style.css">
+</head>
+    <div>
+        <h1 class="cen" id="head">Insert books</h1>
+    </div>
+
+<body>
+    <div>
+        <h2 class="cen">Book Description</h2><br>
+    </div>
+    <form action="connect.php" method="post">
+
+        <label for="bname">Name of the book: </label><br>
+        <input type="text" name="bname" id="bname" required><br><br>
+
+        <label for="author">Author: </label><br>
+        <input type="text" name="author" id="author" required><br><br>
+
+        <label for="stock">Stock:</label><br>
+        <input type="number" name="stock" id="stock"><br><br>       
+
+        <input type="submit" name="submit" id="submit" />
+
+    </form>
+</body>
+</html>
