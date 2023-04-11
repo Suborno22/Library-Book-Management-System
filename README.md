@@ -4,7 +4,7 @@ This project is made by joining PHP file with MySQL database. The user can:
 
 - Look at the books that are currently available.
 - insert description of new books.
-- Register himself for issuing books from the database. 
+- register himself for issuing books from the database. 
 - provide feedback to the developers.
 - get to be verified before issuing any book.
  
