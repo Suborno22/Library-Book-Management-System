@@ -8,7 +8,7 @@ This project is made by joining PHP file with MySQL database. The user can:
 - provide feedback to the developers.
 - get to be verified before issuing any book.
  
-To run this project. First, it is necessary to create a database with respective tables in MyPHPAdmin using MySQL queries that are provided here. Then the user can insert the student's credentials and book descriptions.
+To run this project. First, it is necessary to create a database with respective tables in MyPHPAdmin using MySQL queries that is provided here. Then the user can insert the student's credentials and book descriptions.
 
 -----------------
 
