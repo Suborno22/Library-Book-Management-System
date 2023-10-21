@@ -1,6 +1,7 @@
 <?php
+require(__DIR__.'/../dbconfig/connect.php');
+
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
-    $conn = mysqli_connect('localhost','root','','college') or die("Connection failed:".mysqli_connect_error());
 
     if(isset($_POST['bname']) && isset($_POST['author']) && isset($_POST['stock'])){
 

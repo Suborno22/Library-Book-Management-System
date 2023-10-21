@@ -1,6 +1,6 @@
 <?php
+require(__DIR__.'/../dbconfig/connect.php');
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
-    $conn = mysqli_connect('localhost','root','','college') or die("Connection failed: ".mysqli_connect_error());
     $name = $_POST['name'];
     $sql = "SELECT * FROM `students_database` WHERE name='$name' LIMIT 1";
     $result = mysqli_query($conn,$sql);

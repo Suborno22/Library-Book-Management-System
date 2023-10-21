@@ -1,15 +1,5 @@
 <?php
-// Connect to the database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "college";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+require(__DIR__.'/../dbconfig/connect.php');
 // Check if the form has been submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST'&& isset($_POST['submit'])) {
     // Get the input values from the form
