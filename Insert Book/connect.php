@@ -1,5 +1,4 @@
 <?php
-require(__DIR__.'/../dbconfig/connect.php');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
 
@@ -8,6 +7,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
         $name = $_POST['bname'];
         $author = $_POST['author'];
         $stock = $_POST['stock'];
+        require(__DIR__.'/../dbconfig/connect.php');
 
         $stmt = mysqli_prepare($conn, "INSERT INTO `books` (book_name,author,stock) VALUES (?, ?, ?)");
         mysqli_stmt_bind_param($stmt, 'ssi', $name, $author, $stock);

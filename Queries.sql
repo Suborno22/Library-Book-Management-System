@@ -58,7 +58,8 @@ CREATE TABLE IF NOT EXISTS students (
 
 CREATE TABLE IF NOT EXISTS admins(
   id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  full_name VARCHAR(255)
+  full_name VARCHAR(50),
+  password VARCHAR(255)
 );
 
 show tables;

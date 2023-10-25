@@ -1,11 +1,11 @@
 <?php
-require(__DIR__.'/../dbconfig/connect.php');
 // Check if the form has been submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST'&& isset($_POST['submit'])) {
     // Get the input values from the form
     $name = $_POST['name'];
     $bname = $_POST['bname'];
     $author = $_POST['author'];
+    require(__DIR__.'/../dbconfig/connect.php');
 
     // Find the book in the database
     $sql = "SELECT * FROM books WHERE book_name='$bname' AND author='$author'";

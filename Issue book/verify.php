@@ -1,7 +1,7 @@
 <?php
-require(__DIR__.'/../dbconfig/connect.php');
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
     $name = $_POST['name'];
+    require(__DIR__.'/../dbconfig/connect.php');
     $sql = "SELECT * FROM `students_database` WHERE name='$name' LIMIT 1";
     $result = mysqli_query($conn,$sql);
 

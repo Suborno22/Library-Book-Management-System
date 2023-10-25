@@ -1,7 +1,8 @@
 <?php
-require(__DIR__.'/../dbconfig/connect.php');
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
     if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['semester']) && isset($_POST['department'])){
+        
+        require(__DIR__.'/../dbconfig/connect.php');
 
         $name = $_POST['name'];
         $email = $_POST['email'];
