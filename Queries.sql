@@ -4,17 +4,17 @@ CREATE DATABASE IF NOT EXISTS college;
 
 USE college;
 
-CREATE TABLE IF NOT EXISTS authors (
-  author_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  author_name VARCHAR(255)
-);
-
 CREATE TABLE IF NOT EXISTS books (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   book_name VARCHAR(255),
   publishing_date DATE,
-  author_id INT(11),
-  FOREIGN KEY (author_id) REFERENCES authors (author_id)
+  author_name VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS book_details(
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  Stock INT(5),
+  FOREIGN KEY (id) REFERENCES books(id)
 );
 
 CREATE TABLE IF NOT EXISTS borrowings (
@@ -29,11 +29,6 @@ CREATE TABLE IF NOT EXISTS returns (
   user_name VARCHAR(100),
   book_id INT(11),
   return_date DATE
-);
-
-CREATE TABLE IF NOT EXISTS book_details(
-  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  Stock INT(5) 
 );
 
 CREATE TABLE IF NOT EXISTS courses (
@@ -62,4 +57,4 @@ CREATE TABLE IF NOT EXISTS admins(
   password VARCHAR(255)
 );
 
-show tables;
+SHOW TABLES;

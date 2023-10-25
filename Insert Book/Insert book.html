@@ -15,18 +15,22 @@
     <div>
         <h2 class="cen">Book Description</h2><br>
     </div>
-    <form action="connect.php" method="post">
+    <form action="insert_book.php" method="post" onsubmit="return validate()">
 
         <label for="bname">Name of the book: </label><br>
         <input type="text" name="bname" id="bname" required><br><br>
 
+        <label for="pdate">Publishing Date:</label><br>
+        <input type="date" name="pdate" id="date" required><br><br>  
+
         <label for="author">Author: </label><br>
         <input type="text" name="author" id="author" required><br><br>
 
-        <label for="stock">Stock:</label><br>
-        <input type="number" name="stock" id="stock"><br><br>       
+        <label for="stock">Stock: </label><br>
+        <input type="number" name="stock" id="stock" required><br><br>
 
-
+        <input type="submit" name="submit" id="submit">
+     
     </form>
 </body>
 </html>
