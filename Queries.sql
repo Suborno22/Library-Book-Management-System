@@ -44,18 +44,13 @@ CREATE TABLE IF NOT EXISTS enrollments (
   department VARCHAR(100)
 );
 
-CREATE TABLE IF NOT EXISTS students (
+CREATE TABLE IF NOT EXISTS user (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(250),
+  username VARCHAR(250),
   email VARCHAR(250),
-  phone VARCHAR(100)
-);
-
-CREATE TABLE IF NOT EXISTS admins(
-  id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  full_name VARCHAR(50),
-  status VARCHAR(255) DEFAULT 'admin',
-  password VARCHAR(255)
+  status VARCHAR(255) DEFAULT 'student',
+  phone VARCHAR(100),
+  password VARCHAR(10)
 );
 
 SHOW TABLES;

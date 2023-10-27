@@ -11,37 +11,42 @@ if (isset($_SESSION['isLoggedIn'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'];
+    $username = $_POST['username']; // Change 'username' to 'username' for consistency with your database
     $password = $_POST['password'];
 
     // Connect to the database
     require(__DIR__ . '/../dbconfig/connect.php');
 
     // Prepare a query to retrieve user information based on the provided username
-    $query = "SELECT * FROM admins WHERE full_name = ? AND password = ?";
+    $query = "SELECT * FROM admins WHERE username = ?";
     $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, 'ss', $username, $password);
+    mysqli_stmt_bind_param($stmt, 's', $username);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
 
     if (mysqli_num_rows($result) == 1) {
         $user = mysqli_fetch_assoc($result);
 
-        // Check if the user is an admin
-        if ($user['status'] === 'admin') {
-            $_SESSION['isAdmin'] = true;
-        } else {
-            $_SESSION['isAdmin'] = false;
-        }
+        // Verify the provided password with the hashed password in the database
+        if (password_verify($password, $user['password'])) {
+            // Check if the user is an admin
+            if ($user['status'] === 'admin') {
+                $_SESSION['isAdmin'] = true;
+            } else {
+                $_SESSION['isAdmin'] = false;
+            }
 
-        $_SESSION['isLoggedIn'] = true;
+            $_SESSION['isLoggedIn'] = true;
 
-        if ($_SESSION['isAdmin'] === true) {
-            header('Location: admin_dashboard.php');
+            if ($_SESSION['isAdmin'] === true) {
+                header('Location: admin_dashboard.php');
+            } else {
+                header('Location: user_dashboard.php');
+            }
+            exit();
         } else {
-            header('Location: user_dashboard.php');
+            $error = "Invalid username or password";
         }
-        exit();
     } else {
         $error = "Invalid username or password";
     }

@@ -1,5 +1,10 @@
 <?php
-
+session_start(); // Start the session (you may need to modify session settings)
+if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
+    // Redirect to a login page or display an unauthorized message
+    header('Location: Login/login.php');
+    exit();
+}
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 
     if (isset($_POST['bname']) && isset($_POST['pdate']) && isset($_POST['author'])) {
