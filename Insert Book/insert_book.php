@@ -7,7 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
         $name = $_POST['bname'];
         $pdate = $_POST['pdate'];
         $author = $_POST['author'];
-        $stock
         require(__DIR__ . '/../dbconfig/connect.php');
 
         $checkQuery = "SELECT * FROM `books` WHERE book_name = ?";
