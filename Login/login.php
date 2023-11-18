@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require(__DIR__ . '/../dbconfig/connect.php');
 
     // Prepare a query to retrieve user information based on the provided username
-    $query = "SELECT * FROM admins WHERE username = ?";
+    $query = "SELECT * FROM `persons` WHERE username = ?";
     $stmt = mysqli_prepare($conn, $query);
     mysqli_stmt_bind_param($stmt, 's', $username);
     mysqli_stmt_execute($stmt);
