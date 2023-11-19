@@ -48,8 +48,7 @@ CREATE TABLE IF NOT EXISTS persons (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(250),
   email VARCHAR(250),
-  status VARCHAR(255) DEFAULT 'student',
-  phone VARCHAR(100),
+  status VARCHAR(255),
   password VARCHAR(255)
 );
 

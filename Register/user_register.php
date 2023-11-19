@@ -1,24 +1,24 @@
 <?php
-ob_start(); 
+ob_start(); // Start output buffering
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
-    if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['status']) && isset($_POST['phone']) && isset($_POST['password'])){        $fullname = $_POST['username'];
+    if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['password'])){        
         
-        $fullname = $_POST['username'];
+        
+        $username = $_POST['username'];
         $email = $_POST['email'];
-        $status = $_POST['status'];
         $phone = $_POST['phone'];
         $password = $_POST['password'];
-        
-        $fullname = str_replace(' ', '', $fullname);
+        $status = 'user';
+
 
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        require(__DIR__.'/../dbconfig/connect.php');
+        require(__DIR__.'/../../dbconfig/connect.php');
 
         // Check if the username already exists
         $checkQuery = "SELECT * FROM `persons` WHERE username = ?";
         $checkStmt = mysqli_prepare($conn, $checkQuery);
-        mysqli_stmt_bind_param($checkStmt, 's', $fullname);
+        mysqli_stmt_bind_param($checkStmt, 's', $username);
         mysqli_stmt_execute($checkStmt);
         $result = mysqli_stmt_get_result($checkStmt);
 
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
             // Insert the new user
             $insertQuery = "INSERT INTO `persons` (username, email, status, phone, password) VALUES (?, ?, ?, ?, ?)";
             $stmt = mysqli_prepare($conn, $insertQuery);
-            mysqli_stmt_bind_param($stmt, 'sssss', $fullname, $email, $status, $phone, $hashedPassword);
+            mysqli_stmt_bind_param($stmt, 'sssss', $username, $email, $status, $phone, $hashedPassword);
 
             $query = mysqli_stmt_execute($stmt);
 
@@ -55,15 +55,12 @@ ob_end_flush();
     <title>Admin page</title>
 </head>
 <body>
-    <form  method="post" onsubmit="return validateForm()">
+    <form method="post" onsubmit="return validateForm()">
         <label for="username">Full Name: </label>
         <input type="text" id="username" name="username">
         
         <label for="email">Email: </label>
         <input type="email" id="email" name="email">
-        
-        <label for="status">Status: </label>
-        <input type="text" id="status" name="status">
         
         <label for="phone">Phone Number: </label>
         <input type="number" id="phone" name="phone">
@@ -113,3 +110,4 @@ ob_end_flush();
     </script>
 </body>
 </html>
+

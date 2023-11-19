@@ -4,13 +4,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['password'])){        
         
         
-        $fullname = $_POST['username'];
+        $username = $_POST['username'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $password = $_POST['password'];
-        $status = 'student';
-        
-        $fullname = str_replace(' ', '', $fullname);
+        $status = 'user';
+
 
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
@@ -19,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
         // Check if the username already exists
         $checkQuery = "SELECT * FROM `persons` WHERE username = ?";
         $checkStmt = mysqli_prepare($conn, $checkQuery);
-        mysqli_stmt_bind_param($checkStmt, 's', $fullname);
+        mysqli_stmt_bind_param($checkStmt, 's', $username);
         mysqli_stmt_execute($checkStmt);
         $result = mysqli_stmt_get_result($checkStmt);
 
@@ -29,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
             // Insert the new user
             $insertQuery = "INSERT INTO `persons` (username, email, status, phone, password) VALUES (?, ?, ?, ?, ?)";
             $stmt = mysqli_prepare($conn, $insertQuery);
-            mysqli_stmt_bind_param($stmt, 'sssss', $fullname, $email, $status, $phone, $hashedPassword);
+            mysqli_stmt_bind_param($stmt, 'sssss', $username, $email, $status, $phone, $hashedPassword);
 
             $query = mysqli_stmt_execute($stmt);
 
