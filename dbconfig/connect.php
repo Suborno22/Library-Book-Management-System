@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ .'/../vendor/autoload.php';
 
 try {
@@ -17,6 +18,15 @@ $database = $_ENV['db_database'];
 
 // Create connection
 $conn = new mysqli($servername, $user, $pwd, $database);
+
+$servername = "localhost:3306";
+$uname = "root";
+$pwd = "";
+$database = "college";
+
+// Create connection
+$conn = new mysqli($servername, $uname,$pwd, $database);
+
 
 // Check connection
 if ($conn->connect_error) {
